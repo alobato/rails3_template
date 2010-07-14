@@ -34,6 +34,8 @@ generate "rspec:install"
 generate "controller home index"
 gsub_file "config/routes.rb", '  get "home/index"', ""
 route "root :to => 'home#index'"
+run "rm spec/helpers/home_helper_spec.rb"
+run "rm -rf spec/views/home"
 
 ##### layout #####
 gsub_file "app/views/layouts/application.html.erb", '<%= yield %>', '<p class="notice"><%= notice %></p>\n<p class="alert"><%= alert %></p>\n\n<%= yield %>'

@@ -69,7 +69,7 @@ unless devise == '0'
   run "rm spec/helpers/home_helper_spec.rb"
   run "rm -rf spec/views/home"
   ## layout ##
-  gsub_file "app/views/layouts/application.html.erb", '<%= yield %>', '<p class="notice"><%= notice %></p>\n<p class="alert"><%= alert %></p>\n\n<%= yield %>'
+  gsub_file "app/views/layouts/application.html.erb", '<%= yield %>', "<p class=\"notice\"><%= notice %></p>\n<p class=\"alert\"><%= alert %></p>\n\n<%= yield %>"
   # generate "devise User"
   file "app/models/user.rb", File.read("#{File.dirname(__FILE__)}/app/models/user.rb")
   file "db/migrate/#{Time.now.strftime("%Y%m%d%H%M%S")}_devise_create_users.rb", File.read("#{File.dirname(__FILE__)}/db/migrate/devise_create_users.rb")

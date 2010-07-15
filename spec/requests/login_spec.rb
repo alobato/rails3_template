@@ -12,26 +12,31 @@
 #     And I press "Login"
 #     Then I should be redirected to main page or origin page
 
+#   Scenario: Login with invalid email and password
+#   ...Then I should see "Error" message
+
 require 'spec_helper'
 
 describe 'Login' do
   
-  let(:user) { Factory(:user) }
-  
   before { visit '/login' }
   
+  it "initial check" do
+    page.should have_form_to('/login')
+  end
+
   context 'with valid credentials' do
     before do
+      user = Factory(:user)
       fill_in 'Email', :with => user.email
       fill_in 'Senha', :with => user.password
       click_button 'Login'
     end
     
     subject { page }
-
     it { should have_content('Login realizado com sucesso') }
-    it { should_not have_xpath('//form[@action="/login"]') }
-    it { subject.current_path.should eql('/') }
+    it { should_not have_form_to('/login') }
+    it { should current_path_to('/') }
   end
 
   context 'with invalid credentials' do
@@ -42,10 +47,9 @@ describe 'Login' do
     end
 
     subject { page }
-
     it { should have_content('Email e/ou senha inválidos') }
-    it { should have_xpath('//form[@action="/login"]') }
-    it { subject.current_path.should eql('/login') }
+    it { should have_form_to('/login') }
+    it { should current_path_to('/login') }
   end
   
 end

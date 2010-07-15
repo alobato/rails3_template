@@ -123,6 +123,8 @@ if devise == '2'# portuguese
   route "match 'enviar-confirmacao' => 'devise/confirmations#new', :via => :put, :as => :send_confirmation"
   route "match 'enviar-confirmacao' => 'devise/confirmations#create', :via => :post, :as => :send_confirmation"
   route "match 'c/:confirmation_token' => 'devise/confirmations#show', :via => :get, :as => :confirmation"
+
+  # TODO: Translate h1 titles in views of devise
 end
 
 ##### locale #####

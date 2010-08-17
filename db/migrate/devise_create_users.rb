@@ -9,6 +9,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
       # t.token_authenticatable
       t.string :name
+      t.string :nickname
+      t.string :avatar
+      t.datetime :deleted_at
       t.timestamps
     end
 

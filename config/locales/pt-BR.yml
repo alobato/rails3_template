@@ -175,6 +175,11 @@ pt-BR:
     email: Email
     password: Senha
     password_confirmation: Confirmação de senha
+    nickname: Apelido
+    name: Nome completo
+    terms_of_service: Termos de serviço
+    confirmation_token: Código de confirmação
+    reset_password_token: Código para recriar senha
 
   activerecord:
     models:
@@ -182,43 +187,44 @@ pt-BR:
     attributes:
       user:
         password: Senha
+    errors:
+      template:
+        header:
+          one: "Não foi possível gravar %{model}: 1 erro"
+          other: "Não foi possível gravar %{model}: %{count} erros."
+        body: "Por favor, verifique o(s) seguinte(s) campo(s):"
+      messages:
+        inclusion: "não está incluído na lista"
+        exclusion: "não está disponível"
+        invalid: "não é válido"
+        confirmation: "não está de acordo com a confirmação"
+        accepted: "deve ser aceito"
+        empty: "não pode ficar vazio"
+        blank: "não pode ficar em branco"
+        too_long: "é muito longo(a) (máximo: %{count} caracteres)"
+        too_short: "é muito curto(a) (mínimo: %{count} caracteres)"
+        wrong_length: "não possui o tamanho esperado (%{count} caracteres)"
+        taken: "já está em uso"
+        not_a_number: "não é um número"
+        not_an_integer: "não é um número inteiro"
+        greater_than: "deve ser maior do que %{count}"
+        greater_than_or_equal_to: "deve ser maior ou igual a %{count}"
+        equal_to: "deve ser igual a %{count}"
+        less_than: "deve ser menor do que %{count}"
+        less_than_or_equal_to: "deve ser menor ou igual a %{count}"
+        odd: "deve ser ímpar"
+        even: "deve ser par"
+        record_invalid: "A validação falhou: %{errors}"
+        not_found: "não encontrado"
+        already_confirmed: "já foi confirmado"
+        not_locked: "não estava bloqueado"
 
   helpers:
     label:
       user:
         password_confirmation: Repita a senha
+        terms_of_service: Aceito os Termos de Serviço
+        remember_me: Continuar conectado
     submit:
-      create: "Criar um {{model}}"
+      create: "Criar um %{model}"
 
-  devise:
-    failure:
-      unauthenticated: 'Você precisa fazer login ou criar uma conta antes de continuar.'
-      unconfirmed: 'Você precisa confirmar sua conta antes de continuar.'
-      locked: 'Sua conta foi bloqueada.'
-      invalid: 'Email e/ou senha inválidos.'
-      invalid_token: 'Token de autenticação inválido.'
-      timeout: 'Sua sessão expirou, por favor faça login novamente para continuar.'
-      inactive: 'Sua conta ainda não foi ativada.'
-    sessions:
-      signed_in: 'Login realizado com sucesso.'
-      signed_out: 'A sessão foi encerrada com sucesso.'
-    passwords:
-      send_instructions: 'Você receberá um email com instruções de como gerar nova senha.'
-      updated: 'Sua senha foi alterada com sucesso. Você agora está logado.'
-    confirmations:
-      send_instructions: 'Você receberá um email com instruções de como confirmar sua conta.'
-      confirmed: 'Sua conta foi confirmada com sucesso. Você agora está logado.'
-    registrations:
-      signed_up: 'Sua conta foi criada com sucesso. Foi enviado para seu email instruções de como confirmar sua conta.'
-      updated: 'Sua conta foi alterada com sucesso.'
-      destroyed: 'Sua conta foi cancelada com sucesso.'
-    unlocks:
-      send_instructions: 'Você receberá um email com instruções de como desbloquear sua conta.'
-      unlocked: 'Sua conta foi desbloqueada com sucesso. Você agora está logado.'
-    mailer:
-      confirmation_instructions:
-        subject: 'Instruções para confirmar conta'
-      reset_password_instructions:
-        subject: 'Instruções para gerar nova senha'
-      unlock_instructions:
-        subject: 'Instruções para desbloqueio de conta'

@@ -1,14 +1,12 @@
-vendor/rails/*
+.bundle
+db/*.sqlite3
 log/*.log
 tmp/**/*
+vendor/rails/*
 public/system/*
 .DS_Store
 db/schema.rb
-db/*.sqlite3
 public/cache
 public/system
 doc/*
-.bundle
 cache
-
-
